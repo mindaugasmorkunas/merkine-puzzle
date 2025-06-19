@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merkine Trail Puzzle</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🥾 Merkine Trail Puzzle</h1>
+            <p>Solve the puzzle to reveal your hiking trail!</p>
+        </header>
+
+        <div class="puzzle-container">
+            <div class="puzzle-info">
+                <h2>Find the Hidden Trail</h2>
+                <p>Answer the questions below to unlock pieces of your hiking route around Merkine.</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p id="progressText">Progress: 0/5 clues solved</p>
+            </div>
+
+            <div class="jigsaw-puzzle-section">
+                <h3>🧩 Assemble Your Trail Map</h3>
+                <p>Each correct answer reveals a piece of your hiking trail puzzle!</p>
+                
+                <div class="puzzle-grid" id="puzzleGrid">
+                    <div class="puzzle-piece" data-piece="1" id="piece1">
+                        <div class="piece-overlay">
+                            <span class="piece-number">1</span>
+                            <span class="piece-status">🔒 Solve Historic Clue</span>
+                        </div>
+                    </div>
+                    <div class="puzzle-piece" data-piece="2" id="piece2">
+                        <div class="piece-overlay">
+                            <span class="piece-number">2</span>
+                            <span class="piece-status">🔒 Solve Nature Clue</span>
+                        </div>
+                    </div>
+                    <div class="puzzle-piece" data-piece="3" id="piece3">
+                        <div class="piece-overlay">
+                            <span class="piece-number">3</span>
+                            <span class="piece-status">🔒 Solve Geography Clue</span>
+                        </div>
+                    </div>
+                    <div class="puzzle-piece" data-piece="4" id="piece4">
+                        <div class="piece-overlay">
+                            <span class="piece-number">4</span>
+                            <span class="piece-status">🔒 Solve Navigation Clue</span>
+                        </div>
+                    </div>
+                    <div class="puzzle-piece" data-piece="5" id="piece5">
+                        <div class="piece-overlay">
+                            <span class="piece-number">5</span>
+                            <span class="piece-status">🔒 Solve Trail Clue</span>
+                        </div>
+                    </div>
+                    <div class="puzzle-piece center-piece" data-piece="center" id="pieceCenter">
+                        <div class="piece-overlay">
+                            <span class="piece-status">🏁 Complete All Clues</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="puzzle-hint">
+                    <p><strong>💡 Hint:</strong> Answer the questions below to unlock each piece of your trail map!</p>
+                </div>
+            </div>
+
+            <div class="questions-grid">
+                <div class="question-card" data-question="1">
+                    <h3>🏛️ Historic Clue #1</h3>
+                    <p>What is the name of the famous national park that Merkine is located in?</p>
+                    <input type="text" id="answer1" placeholder="Enter your answer...">
+                    <button onclick="checkAnswer(1)">Submit</button>
+                    <div class="feedback" id="feedback1"></div>
+                </div>
+
+                <div class="question-card" data-question="2">
+                    <h3>🌊 Nature Clue #2</h3>
+                    <p>Which river flows through Merkine, creating beautiful meanders?</p>
+                    <input type="text" id="answer2" placeholder="Enter your answer...">
+                    <button onclick="checkAnswer(2)">Submit</button>
+                    <div class="feedback" id="feedback2"></div>
+                </div>
+
+                <div class="question-card" data-question="3">
+                    <h3>🏔️ Geography Clue #3</h3>
+                    <p>A typical loop trail around Merkine through forests and along the river is approximately how many kilometers?</p>
+                    <input type="number" id="answer3" placeholder="Enter distance in km..." min="1" max="50">
+                    <button onclick="checkAnswer(3)">Submit</button>
+                    <div class="feedback" id="feedback3"></div>
+                </div>
+
+                <div class="question-card" data-question="4">
+                    <h3>🗺️ Navigation Clue #4</h3>
+                    <p>From Merkine town center, which direction would you typically head to start a scenic loop trail around the Nemunas River?</p>
+                    <select id="answer4">
+                        <option value="">Select direction...</option>
+                        <option value="north">North</option>
+                        <option value="south">South</option>
+                        <option value="east">East</option>
+                        <option value="west">West</option>
+                    </select>
+                    <button onclick="checkAnswer(4)">Submit</button>
+                    <div class="feedback" id="feedback4"></div>
+                </div>
+
+                <div class="question-card" data-question="5">
+                    <h3>🌲 Trail Clue #5</h3>
+                    <p>How many major points of interest (historic sites, natural landmarks, viewpoints) would you expect to find along a 9km trail around Merkine?</p>
+                    <input type="number" id="answer5" placeholder="Count the landmarks..." min="1" max="20">
+                    <button onclick="checkAnswer(5)">Submit</button>
+                    <div class="feedback" id="feedback5"></div>
+                </div>
+            </div>
+
+            <div class="trail-reveal" id="trailReveal">
+                <h2>🎉 Congratulations!</h2>
+                <p>You've solved the puzzle! Here's your complete hiking information:</p>
+                
+                <div class="trail-map">
+                    <h3>🗺️ Interactive Trail Map</h3>
+                    <p>Click the button below to open your detailed trail map:</p>
+                    <a href="https://www.google.com/maps/d/u/0/viewer?mid=1Jkjah74hD6RfA1mTSwxsSXLwD4q9-cc&ll=54.158739664305806%2C24.188220500000003&z=15" 
+                       target="_blank" class="map-button">
+                        🗺️ Open Interactive Trail Map
+                    </a>
+                    <div class="map-embed">
+                        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Jkjah74hD6RfA1mTSwxsSXLwD4q9-cc&ll=54.158739664305806%2C24.188220500000003&z=15" 
+                                width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Hiking Reminder Section -->
+                <div class="hiking-reminder">
+                    <h2>🥾 HIKER'S REMINDER</h2>
+                    
+                    <div class="hiking-info-grid">
+                        <div class="info-card event-details">
+                            <h3>📍 Event Details</h3>
+                            <ul>
+                                <li><strong>Start Location:</strong> Near Merkinė Castle Mound (54.1577, 24.1823)</li>
+                                <li><strong>Gathering Time:</strong> From 12:00</li>
+                                <li><strong>Hike Start:</strong> 12:30</li>
+                                <li><strong>Distance:</strong> 9 KM</li>
+                                <li><strong>Duration:</strong> Approximately 4 hours</li>
+                                <li><strong>Evening Program:</strong> Starts at 17:00</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card event-agenda">
+                            <h3>📅 Event Agenda</h3>
+                            <ul>
+                                <li><strong>At Start:</strong> Registration, instructions</li>
+                                <li><strong>1st Rest Stop:</strong> Games, hot drinks, plovas, tea, water</li>
+                                <li><strong>2nd Rest Stop:</strong> Games, snacks, water, WC</li>
+                                <li><strong>Finish:</strong> Evening program "Pasaulio puodų" restaurant, hot food, drinks, WC</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card safety-tips">
+                            <h3>⚠️ Important Safety Tips</h3>
+                            <ul>
+                                <li><strong>Recommended:</strong> Bring spare clothes and shoes</li>
+                                <li><strong>Bug protection:</strong> Use insect repellent and wear appropriate clothing to protect against mosquitoes and ticks</li>
+                                <li><strong>Alcohol awareness:</strong> Be mindful about alcohol consumption during the hike - stay hydrated and safe</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card equipment">
+                            <h3>🌟 Equipment Recommendations</h3>
+                            <ul>
+                                <li><strong>Check weather conditions</strong> - dress accordingly for the day's forecast</li>
+                                <li><strong>Comfortable footwear</strong> - good hiking boots or shoes with grip, as paths can be wet and slippery</li>
+                                <li><strong>Summer clothing</strong> - lightweight, breathable clothes suitable for warm weather</li>
+                                <li><strong>Sun protection</strong> - hat, sunglasses, and sunscreen for sunny summer conditions</li>
+                                <li><strong>Spare clothes & shoes (optional)</strong> - bring fresh clothes and shoes to change for the evening program if you prefer</li>
+                                <li><strong>Accessories</strong> - backpack, water bottle, snacks, rain protection</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card emergency-contact">
+                            <h3>📞 Emergency Contact</h3>
+                            <div class="emergency-phone">
+                                <a href="tel:+37062269291">+370 62269291</a>
+                            </div>
+                        </div>
+
+                        <div class="info-card final-reminder">
+                            <h3>🌲 Remember</h3>
+                            <p>This is a 4-hour hike through Dzūkija National Park. Come prepared for changing weather conditions and enjoy the beautiful nature!</p>
+                        </div>
+
+                        <div class="info-card more-details">
+                            <h3>ℹ️ More Details & Questions</h3>
+                            <p>For additional information, updates, or questions about the event:</p>
+                            <div class="details-link">
+                                <a href="https://app.simoona.com/Visma/Events/EventContent/b9037172-ba7b-4b4e-be4f-c350e63f3e33" target="_blank">
+                                    📋 View Full Event Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="resetPuzzle()" class="reset-btn">Try Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

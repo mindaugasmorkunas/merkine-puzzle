@@ -20,7 +20,7 @@
                 <div class="progress-bar">
                     <div class="progress-fill" id="progressFill"></div>
                 </div>
-                <p id="progressText">Progress: 0/5 clues solved</p>
+                <p id="progressText">Progress: 0/6 clues solved</p>
             </div>
 
             <div class="jigsaw-puzzle-section">
@@ -58,6 +58,12 @@
                             <span class="piece-status">🔒 Solve Trail Clue</span>
                         </div>
                     </div>
+                    <div class="puzzle-piece" data-piece="6" id="piece6">
+                        <div class="piece-overlay">
+                            <span class="piece-number">6</span>
+                            <span class="piece-status">🔒 Solve Royal Clue</span>
+                        </div>
+                    </div>
                     <div class="puzzle-piece center-piece" data-piece="center" id="pieceCenter">
                         <div class="piece-overlay">
                             <span class="piece-status">🏁 Complete All Clues</span>
@@ -74,7 +80,13 @@
                 <div class="question-card" data-question="1">
                     <h3>🏛️ Historic Clue #1</h3>
                     <p>What is the name of the famous national park that Merkine is located in?</p>
-                    <input type="text" id="answer1" placeholder="Enter your answer...">
+                    <select id="answer1">
+                        <option value="">Select national park...</option>
+                        <option value="dzukija">Dzūkija National Park</option>
+                        <option value="aukstaitija">Aukštaitija National Park</option>
+                        <option value="zemaitija">Žemaitija National Park</option>
+                        <option value="kursi">Kuršių Nerija National Park</option>
+                    </select>
                     <button onclick="checkAnswer(1)">Submit</button>
                     <div class="feedback" id="feedback1"></div>
                 </div>
@@ -82,7 +94,13 @@
                 <div class="question-card" data-question="2">
                     <h3>🌊 Nature Clue #2</h3>
                     <p>Which river flows through Merkine, creating beautiful meanders?</p>
-                    <input type="text" id="answer2" placeholder="Enter your answer...">
+                    <select id="answer2">
+                        <option value="">Select river...</option>
+                        <option value="nemunas">Nemunas</option>
+                        <option value="vilnia">Vilnia</option>
+                        <option value="neris">Neris</option>
+                        <option value="sesupe">Šešupė</option>
+                    </select>
                     <button onclick="checkAnswer(2)">Submit</button>
                     <div class="feedback" id="feedback2"></div>
                 </div>
@@ -90,7 +108,16 @@
                 <div class="question-card" data-question="3">
                     <h3>🏔️ Geography Clue #3</h3>
                     <p>A typical loop trail around Merkine through forests and along the river is approximately how many kilometers?</p>
-                    <input type="number" id="answer3" placeholder="Enter distance in km..." min="1" max="50">
+                    <select id="answer3">
+                        <option value="">Select distance...</option>
+                        <option value="7">7 km</option>
+                        <option value="8">8 km</option>
+                        <option value="9">9 km</option>
+                        <option value="10">10 km</option>
+                        <option value="11">11 km</option>
+                        <option value="12">12 km</option>
+                        <option value="15">15 km</option>
+                    </select>
                     <button onclick="checkAnswer(3)">Submit</button>
                     <div class="feedback" id="feedback3"></div>
                 </div>
@@ -111,10 +138,31 @@
 
                 <div class="question-card" data-question="5">
                     <h3>🌲 Trail Clue #5</h3>
-                    <p>How many major points of interest (historic sites, natural landmarks, viewpoints) would you expect to find along a 9km trail around Merkine?</p>
-                    <input type="number" id="answer5" placeholder="Count the landmarks..." min="1" max="20">
+                    <p>How many hours does a 9km hiking trail around Merkine take to complete at a comfortable pace with breaks?</p>
+                    <select id="answer5">
+                        <option value="">Select duration...</option>
+                        <option value="2">2 hours</option>
+                        <option value="3">3 hours</option>
+                        <option value="4">4 hours</option>
+                        <option value="5">5 hours</option>
+                        <option value="6">6 hours</option>
+                    </select>
                     <button onclick="checkAnswer(5)">Submit</button>
                     <div class="feedback" id="feedback5"></div>
+                </div>
+
+                <div class="question-card" data-question="6">
+                    <h3>👑 Royal Clue #6</h3>
+                    <p>Which Polish King and Grand Duke of Lithuania died in Merkine in 1648, making the town historically significant as one of his favorite holiday destinations?</p>
+                    <select id="answer6">
+                        <option value="">Select royal figure...</option>
+                        <option value="wladyslaw">Władysław IV Vasa</option>
+                        <option value="sigismund">Sigismund III Vasa</option>
+                        <option value="john">John III Sobieski</option>
+                        <option value="casimir">Casimir IV Jagiellon</option>
+                    </select>
+                    <button onclick="checkAnswer(6)">Submit</button>
+                    <div class="feedback" id="feedback6"></div>
                 </div>
             </div>
 
@@ -213,6 +261,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.min.js"></script>
 </body>
 </html> 
